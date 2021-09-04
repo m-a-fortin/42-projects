@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 17:11:57 by mafortin          #+#    #+#             */
-/*   Updated: 2021/08/23 17:21:54 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/04 13:35:53 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*ft_create_stack(char **tab, t_stack *stack_a, t_stats *stats)
 	x = 0;
 	stack_a->size = ft_matrice_size(tab);
 	len = stack_a->size;
-	stack_a->value = calloc(stack_a->size, sizeof(long) + 1);
+	stack_a->value = ft_calloc(stack_a->size, sizeof(long) + 1);
 	while (tab[x])
 	{
 		if (ft_isdigit_string(tab[x]) == 0)

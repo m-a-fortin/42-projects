@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:21:14 by mafortin          #+#    #+#             */
-/*   Updated: 2021/08/24 14:54:52 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/06 12:05:43 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	ft_algo_main(t_stack *a, t_stack *b, t_stack *cpy, t_stats *stats)
 	}
 }
 
+//6 arguments et +
 void	ft_sort_big(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
 {
 	t_big	*big;

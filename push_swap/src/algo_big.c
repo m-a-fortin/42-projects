@@ -6,12 +6,14 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 14:55:47 by mafortin          #+#    #+#             */
-/*   Updated: 2021/08/24 14:58:30 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/06 12:06:26 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+//Re push dans le stack b ce qui avait ete envoyer 
+//qui etait en haut de la moyenne.
 void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int stop)
 {
 	while (stack_a->value[stack_a->size] != stop)
@@ -20,6 +22,7 @@ void	ft_push_back(t_stack *stack_a, t_stack *stack_b, int stop)
 		ft_move_pa_pb(stack_a, stack_b, 'b');
 }
 
+//Solve 12 chiffres et les envoies dans le stack a
 void	ft_solve_stack(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
 {
 	int	big;
@@ -44,6 +47,8 @@ void	ft_solve_stack(t_stack *stack_a, t_stack *stack_b, t_stats *stats)
 		ft_move_ra_rb(stack_a, stack_b, 'a');
 }
 
+//Push vers le stack a tout les valeurs 
+//en haut de la moyenne jusqua ce quil reste 12 chiffres
 int	ft_nb_push(t_stack *stack_a, t_stack *stack_b, t_stats *stats, int *stop)
 {
 	int	index;
@@ -57,6 +62,7 @@ int	ft_nb_push(t_stack *stack_a, t_stack *stack_b, t_stats *stats, int *stop)
 	return (index - 1);
 }
 
+//nested while loop pour solver 6 arguments et +
 void	ft_big_loop(t_stack *a, t_stack *b, t_stats *stats, t_big *big)
 {
 	big->index = ft_nb_push(a, b, stats, big->stop);

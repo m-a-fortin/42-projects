@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 16:58:52 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/01 14:52:47 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/06 12:05:21 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	ft_quick_sort(t_stack *stack, int low, int high)
 	}
 }
 
+// Change les valeurs pour leur donner la position qu'il devrait etre.
 void	ft_rank(t_stack *stack, t_stack *cpy)
 {
 	int	size;
@@ -91,18 +92,13 @@ void	ft_rank(t_stack *stack, t_stack *cpy)
 //Trouver la median.
 void	ft_find_median(t_stack *stack, t_stack *cpy, t_stats *stats)
 {
-	t_stack	*test;
-
-	test = malloc(sizeof(t_stack) * 1);
 	if (!cpy)
 	{
 		stats->error = 1;
 		return ;
 	}
 	cpy->value = ft_calloc(stack->size, sizeof(long) + 1);
-	test->value = ft_calloc(stack->size, sizeof(long) + 1);
 	ft_copy_stack(stack, cpy);
-	ft_copy_stack(stack, test);
 	ft_quick_sort(cpy, 1, cpy->size);
 	ft_rank(stack, cpy);
 }

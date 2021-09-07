@@ -6,7 +6,7 @@
 #    By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/17 14:02:25 by mafortin          #+#    #+#              #
-#    Updated: 2021/09/01 19:19:18 by mafortin         ###   ########.fr        #
+#    Updated: 2021/09/07 17:17:48 by mafortin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS 	= ft_isalnum.c ft_isdigit.c ft_memccpy.c ft_memcpy.c ft_putchar_fd.c\
 		ft_lstiter.c ft_lstmap.c ft_lst_return_int.c ft_atol.c ft_lstnew.c \
 		ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
 		ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_matrice_size.c ft_isdigit_s.c\
-		ft_isdigit_string.c
+		ft_isdigit_string.c get_next_line.c get_next_line_utils.c
 OBJS 	= ${SRCS:.c=.o}
 OBJS_B	= ${SRCS_B:.c=.o}
 HEADER	= libft.h

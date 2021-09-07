@@ -12,9 +12,9 @@
 
 #include "get_next_line.h"
 
-int gnl_nl_chr(const char *str)
+int	gnl_nl_chr(const char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] && str[i] != '\n')
@@ -62,17 +62,17 @@ int	gnl_return(char **save, char **line, int ret, int fd)
 	return (gnl_line(&save[fd], line));
 }
 
-int gnl_loop(int ret, int fd, char *buf, char **save)
+int	gnl_loop(int ret, int fd, char *buf, char **save)
 {
-    char *temp;
+	char	*temp;
 
-    ret = read(fd, buf, 0);
-    if (ret < 0)
-        return (-1);
-    ret = 1;
-    while (ret > 0)
+	ret = read(fd, buf, 0);
+	if (ret < 0)
+		return (-1);
+	ret = 1;
+	while (ret > 0)
 	{
-        ret = read(fd, buf, BUFFER_SIZE);
+		ret = read(fd, buf, BUFFER_SIZE);
 		buf[ret] = '\0';
 		if (!save[fd])
 			save[fd] = ft_strdup(buf);
@@ -85,10 +85,10 @@ int gnl_loop(int ret, int fd, char *buf, char **save)
 		if (gnl_nl_chr(buf))
 			break ;
 	}
-    return (ret);
+	return (ret);
 }
 
-int			get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	*save[1024];
 	char		*buf;
@@ -96,11 +96,11 @@ int			get_next_line(int fd, char **line)
 
 	if (fd < 0 || !line || BUFFER_SIZE < 1)
 		return (-1);
-    buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-    if (!buf)
-        return (-1);
-    ret = 1;
-    ret = gnl_loop(ret, fd, buf, save);
+	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
+	if (!buf)
+		return (-1);
+	ret = 1;
+	ret = gnl_loop(ret, fd, buf, save);
 	gnl_free(&buf);
 	return (gnl_return(save, line, ret, fd));
 }

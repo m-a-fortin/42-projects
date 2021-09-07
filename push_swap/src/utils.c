@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 12:48:08 by mafortin          #+#    #+#             */
-/*   Updated: 2021/08/23 17:04:47 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/07 10:39:19 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_get_high_number(t_stack *stack)
 	int	size_temp;
 
 	size_temp = stack->size;
-	high = 1;
+	high = LONG_MAX;
 	while (size_temp > 0)
 	{
 		if (stack->value[size_temp] >= high)

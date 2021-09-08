@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/07 19:57:18 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/08 16:11:35 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,28 @@ typedef struct	s_map
 	int		y;
 }				t_map;
 
+typedef struct	s_mlx
+{
+	void	*mlx;
+	void	*win;
+}				t_mlx;
+
+typedef struct t_image;
+{
+	void	*ptr;
+	int		*pos_x;
+	int		*pos_y;
+	int		state;
+	char	tile_type;
+}
+
 void	sl_map_main(t_map *map, char **argv, int argc);
 void	sl_get_map(t_map *map_data, char *file_name, int line_count);
 int		sl_line_count(t_map *map_data);
 void	sl_fd_error(t_map *map_data, char **argv);
 void	sl_map_invalid(t_map *map_data);
 void	sl_argc_error(t_map *map_data);
+void	sl_exit(t_map *map_data, t_mlx *ptrs);
+void	sl_print_map_main(t_map *map_data, t_mlx *ptrs);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/07 18:41:08 by hpst             ###   ########.fr       */
+/*   Updated: 2021/09/07 19:57:18 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,15 @@ typedef struct	s_map
 {
 	char	**line;
 	int		fd;
+	int		x;
+	int		y;
 }				t_map;
 
 void	sl_map_main(t_map *map, char **argv, int argc);
 void	sl_get_map(t_map *map_data, char *file_name, int line_count);
 int		sl_line_count(t_map *map_data);
 void	sl_fd_error(t_map *map_data, char **argv);
-void	sl_fd_error(t_map *map_data, char **argv);
+void	sl_map_invalid(t_map *map_data);
 void	sl_argc_error(t_map *map_data);
 
 #endif

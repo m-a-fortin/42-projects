@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:09:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/08 21:54:10 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/08 22:00:31 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	sl_print_tile(t_mlx *ptrs, char *file_name, int x, int y)
 	index = ptrs->img_index;
 	x *= 75;
 	y *= 75;
+	//NEED TO PLACE MY IMAGES BEFORE NOT DURING THE LOOP
 	ptrs->images[index] = mlx_xpm_file_to_image(ptrs->mlx, file_name, &height, &width);
 	mlx_put_image_to_window(ptrs->mlx, ptrs->win, ptrs->images[index], y, x);
 	ptrs->img_index++;

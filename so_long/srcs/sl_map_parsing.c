@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:24:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/07 20:56:41 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/08 21:37:20 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	sl_get_map(t_map *map_data, char *file_name, int line_count)
 		index++;
 	}
 	map_data->x = line_count - 1;
+	map_data->nb_tiles = (map_data->x + 1) * map_data->y;
+	printf("Tiles:%d\n", map_data->nb_tiles);
 	map_data->y--;
 	close(map_data->fd);
 }

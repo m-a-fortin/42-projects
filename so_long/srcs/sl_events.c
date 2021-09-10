@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   sl_events.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 17:05:39 by mafortin         ###   ########.fr       */
+/*   Created: 2021/09/10 14:30:33 by mafortin          #+#    #+#             */
+/*   Updated: 2021/09/10 15:03:08 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(int argc, char **argv)
+int		sl_destroy_window(t_main *structs)
 {
-	t_main	*structs;
-
-	structs = malloc(sizeof(t_main));
-	structs->ptrs = malloc(sizeof(t_mlx));
-	structs->map_data = malloc(sizeof(t_map));
-	structs->tiles = malloc(sizeof(t_images));
-	structs->link = malloc(sizeof(t_player));
-	sl_parse_map_main(structs->map_data, argv, argc);
-	sl_print_map_main(structs);
-	sl_enemy_main(structs);
-	sl_player_main(structs);
-	sl_event_main(structs);
-	mlx_loop(structs->ptrs->mlx);
+	mlx_destroy_window(structs->ptrs->mlx, structs->ptrs->win);
 	sl_exit(structs);
-	return (0);
+	return (1);
+}
+
+int	sl_keypress_main(int key, t_main *structs)
+{
+	if (key == MAIN_ESC)
+		sl_destroy_window(structs);
+	return (key);
+}
+
+void	sl_event_main(t_main *structs)
+{	
+	mlx_hook(structs->ptrs->win, 17, 0L, sl_destroy_window, structs);
+	mlx_hook(structs->ptrs->win, 2, 0L, sl_keypress_main, structs);
 }

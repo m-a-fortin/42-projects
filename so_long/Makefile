@@ -3,7 +3,7 @@ OBJS_PATH =	objs
 SRCS_PATH =	srcs
 LIBFT =		libft
 
-SRCS =		so_long.c sl_map_parsing.c sl_error.c sl_print_map.c
+SRCS =		so_long.c sl_map_parsing.c sl_error.c sl_print_map.c sl_events.c sl_player.c sl_map_error.c
 
 CC =		gcc
 CFLAGS =	-Wall -Werror -Wextra -c -g

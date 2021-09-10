@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:24:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/08 21:37:20 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/10 16:51:11 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,59 +62,11 @@ void	sl_get_map(t_map *map_data, char *file_name, int line_count)
 	}
 	map_data->x = line_count - 1;
 	map_data->nb_tiles = (map_data->x + 1) * map_data->y;
-	printf("Tiles:%d\n", map_data->nb_tiles);
 	map_data->y--;
 	close(map_data->fd);
 }
 
-int		sl_map_standards(char **map)
-{
-	int	index;
-	int	player;
-	int	exit;
-	int	collect;
-
-	index = 0;
-	player = 0;
-	exit = 0;
-	collect = 0;
-	while (map[index])
-	{
-		player += ft_char_search(map[index], 'P');
-		exit += ft_char_search(map[index], 'E');
-		collect += ft_char_search(map[index], 'C');
-		index++;
-	}
-	if (player == 0 || exit == 0 || collect == 0 || player > 1)
-		return (-1);
-	else
-		return (1);
-}
-
-void	sl_valid_map(t_map *map_data)
-{
-	int	x;
-	int	y;
-	
-	x = 0;
-	y = 0;
-	while (map_data->line[0][y])
-	{
-		if (map_data->line[0][y] != '1' || map_data->line[map_data->x][y] != '1')
-			sl_map_invalid(map_data);
-		y++;
-	}
-	while (map_data->line[x])
-	{
-		if (map_data->line[x][0] != '1' || map_data->line[x][map_data->y] != '1')
-				sl_map_invalid(map_data);
-		x++;
-	}
-	if (sl_map_standards(map_data->line) == -1)
-		sl_map_invalid(map_data);
-}
-
-void	sl_map_main(t_map *map_data, char **argv, int argc)
+void	sl_parse_map_main(t_map *map_data, char **argv, int argc)
 {
 	int	line_count;
 	
@@ -133,5 +85,5 @@ void	sl_map_main(t_map *map_data, char **argv, int argc)
 	else
 		line_count = sl_line_count(map_data);
 	sl_get_map(map_data, argv[1], line_count);
-	sl_valid_map(map_data);
+	sl_map_error_main(map_data);
 }

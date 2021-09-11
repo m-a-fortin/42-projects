@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:49:10 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 16:39:44 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/10 17:31:02 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	sl_exit(t_main *structs)
 	ft_free_tab(structs->map_data->line);
 	if (structs->link)
 		free(structs->link);
+	if (structs->bubble)
+		free(structs->bubble);
 	if (structs->map_data)
 		free(structs->map_data);
 	if (structs->ptrs)

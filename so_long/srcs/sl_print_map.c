@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:09:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 17:04:52 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/10 20:31:58 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,6 @@ void	sl_print_loop(t_main *structs, int x, int y)
 	}
 }
 
-int	sl_print_map(t_main *structs)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	y = 0;
-	structs->ptrs->img_index = 0;
-	sl_print_loop(structs, x , y);
-	return (1);
-}
-
 void	sl_check_assets(t_main *structs)
 {
 	if (open("assets/xpm/floor.xpm", O_RDONLY) < 0)
@@ -84,21 +72,37 @@ void	sl_check_assets(t_main *structs)
 	}
 
 }
-void	sl_print_map_main(t_main *structs)
+int	sl_put_image_main(t_main *structs)
 {
 	int	width;
 	int	height;
-	int	width_win;
-	int	height_win;
 
-	width_win = (structs->map_data->y + 1) * 75;
-	height_win = (structs->map_data->x + 1) * 75;
 	sl_check_assets(structs);
-	structs->ptrs->mlx = mlx_init();
-	structs->ptrs->win = mlx_new_window(structs->ptrs->mlx, width_win, height_win, "Link to the so_long");
 	structs->tiles->floor = mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/floor.xpm", &width, &height);
 	structs->tiles->wall = mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/wall.xpm", &width, &height);
 	structs->tiles->exit = mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/chest.xpm", &width, &height);
 	structs->tiles->key = mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/key.xpm", &width, &height);
-	mlx_loop_hook(structs->ptrs->mlx, sl_print_map, structs);
+	sl_player_image(structs->link, structs->ptrs);
+	sl_enemy_image(structs->bubble, structs->ptrs);
+	return (1);
+}
+
+int	sl_print_map(t_main *structs)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	structs->ptrs->img_index = 0;
+	sl_print_loop(structs, x , y);
+	sl_print_player(structs);
+	sl_print_enemy(structs);
+	structs->time40++;
+	structs->time10++;
+	if (structs->time40 == 41)
+		structs->time40 = 1;
+	if (structs->time10 == 11)
+		structs->time10 = 1;
+	return (1);
 }

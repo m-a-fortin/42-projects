@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:30:33 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 15:03:08 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/10 19:22:45 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	sl_keypress_main(int key, t_main *structs)
 
 void	sl_event_main(t_main *structs)
 {	
-	mlx_hook(structs->ptrs->win, 17, 0L, sl_destroy_window, structs);
-	mlx_hook(structs->ptrs->win, 2, 0L, sl_keypress_main, structs);
+	mlx_hook(structs->ptrs->win, 17, 1L<<0, sl_destroy_window, structs);
+	mlx_hook(structs->ptrs->win, 2, 1L<<0, sl_keypress_main, structs);
+	mlx_loop_hook(structs->ptrs->mlx, sl_print_map, structs);
+
 }

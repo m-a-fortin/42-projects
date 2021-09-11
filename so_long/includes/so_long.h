@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 16:57:21 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/10 20:27:26 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,27 @@ typedef struct s_player
 	int		y;
 }			t_player;
 
+typedef struct s_enemy
+{
+	void	*frame1;
+	void	*frame2;
+	void	*frame3;
+	void	*frame4;
+	void	*frame5;
+	int		x;
+	int		y;
+	int		state;
+}				t_enemy;
+
 typedef struct s_main
 {
 	t_map		*map_data;
 	t_mlx		*ptrs;
 	t_images	*tiles;
 	t_player	*link;
+	t_enemy		*bubble;
+	int			time40;
+	int			time10;
 }				t_main;
 
 
@@ -86,13 +101,20 @@ int		sl_map_asset_valid(t_map *map_data);
 void	sl_map_invalid(t_map *map_data);
 void	sl_argc_error(t_map *map_data);
 void	sl_exit(t_main *structs);
-void	sl_print_map_main(t_main *structs);
+int		sl_put_image_main(t_main *structs);
 void	sl_place_map(t_map *map_data, t_mlx *ptrs);
 int		sl_print_map(t_main *structs);
 void	sl_print_tile(t_main *structs, void *tile, int x, int y);
 void	sl_event_main(t_main *structs);
 void	sl_print_loop(t_main *structs, int x, int y);
-void	sl_player_main(t_main *structs);
-void	sl_player_image(t_main *structs);
+int		sl_print_player(t_main *structs);
+void	sl_player_image(t_player *link, t_mlx *ptrs);
+void	sl_enemy_image(t_enemy *bubble, t_mlx *ptrs);
+int		sl_frame_timing(t_main *structs);
+int		sl_print_enemy(t_main *structs);
+void	sl_enemy_pathing(t_map *map_data, int x, int y);
+void	sl_change_enemy_pos(t_main *structs);
+void	sl_enemy_pathing2(t_map *map_data, int x, int y);
+void	sl_enemy_pathing3(t_map *map_data, int x, int y);
 
 #endif

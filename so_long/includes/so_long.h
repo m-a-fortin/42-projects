@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 20:27:26 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/13 18:56:29 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,10 @@ typedef struct s_player
 	void	*back1;
 	void	*back2;
 	void	*back3;
-	int		state;
+	char	state[2];
 	int		x;
 	int		y;
+	int		lost;
 }			t_player;
 
 typedef struct s_enemy
@@ -77,6 +78,9 @@ typedef struct s_enemy
 	int		x;
 	int		y;
 	int		state;
+	char	direction;
+	int		spin;
+	int		lost;
 }				t_enemy;
 
 typedef struct s_main
@@ -112,9 +116,11 @@ void	sl_player_image(t_player *link, t_mlx *ptrs);
 void	sl_enemy_image(t_enemy *bubble, t_mlx *ptrs);
 int		sl_frame_timing(t_main *structs);
 int		sl_print_enemy(t_main *structs);
-void	sl_enemy_pathing(t_map *map_data, int x, int y);
-void	sl_change_enemy_pos(t_main *structs);
-void	sl_enemy_pathing2(t_map *map_data, int x, int y);
-void	sl_enemy_pathing3(t_map *map_data, int x, int y);
+void	sl_pathing_direction1(t_main *structs);
+void	sl_pathing_direction2(t_main *structs);
+void	sl_pathing_direction3(t_main *structs);
+void	sl_pathing_direction4(t_main *structs);
+void	sl_change_enemy_pos2(t_map *map_data, t_enemy *bubble);
+void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble);
 
 #endif

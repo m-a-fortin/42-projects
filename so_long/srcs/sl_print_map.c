@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:09:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 20:31:58 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:45:30 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void	sl_check_assets(t_main *structs)
 		ft_putstr_fd("Oh Oh, tu as jouer avec les assets. FAIT PAS CA!\n", 1);
 		sl_exit(structs);
 	}
-
 }
+
 int	sl_put_image_main(t_main *structs)
 {
 	int	width;
@@ -98,6 +98,13 @@ int	sl_print_map(t_main *structs)
 	sl_print_loop(structs, x , y);
 	sl_print_player(structs);
 	sl_print_enemy(structs);
+	//a arranger pour etre capable de print les 2!
+	if (structs->bubble->lost == 1)
+	{
+		sl_print_player(structs);
+		sl_print_enemy(structs);
+		sl_exit(structs);
+	}
 	structs->time40++;
 	structs->time10++;
 	if (structs->time40 == 41)

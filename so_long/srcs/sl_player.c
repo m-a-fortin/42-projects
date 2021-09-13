@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:28:46 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 19:07:57 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/13 17:34:43 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	sl_print_player(t_main *structs)
 			{
 				sl_print_tile(structs, structs->tiles->floor, x, y);
 				sl_print_tile(structs, structs->link->front1, x, y);
-				structs->link->x = x * 75;
-				structs->link->y = y * 75;
+				structs->link->x = x;
+				structs->link->y = y;
 			}
 			y++;
 		}

@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 20:31:37 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/13 18:57:40 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,15 @@ void	sl_init_struct(t_main *structs)
 	structs->link = malloc(sizeof(t_player));
 	structs->bubble = malloc(sizeof(t_enemy));
 	structs->bubble->state = 1;
-	structs->link->state = 1;
 	structs->time40 = 0;
 	structs->time10 = 0;
-
+	structs->bubble->direction = 'N';
+	structs->bubble->lost = 0;
+	structs->link->lost = 0;
+	structs->link->state[0] = 'N';
+	structs->link->state[1] = '0';
 }
+
 int	main(int argc, char **argv)
 {
 	t_main	*structs;

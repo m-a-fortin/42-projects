@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:49:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 17:01:41 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/13 18:13:58 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,7 @@ int	sl_map_asset_valid(t_map *map_data)
 				&& map_data->line[x][y] != '0' && map_data->line[x][y] != 'E'
 					&& map_data->line[x][y] != 'P' && map_data->line[x][y] != 'C'
 						&& map_data->line[x][y] != 'X')
-			{
-				printf("Invalid:%c\n", map_data->line[x][y]);
 				return (-1);
-			}
 			y++;
 		}
 		x++;

@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 14:30:33 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 18:08:36 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:01:03 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int	sl_keypress_main(int key, t_main *structs)
 {
 	if (key == MAIN_ESC)
 		sl_destroy_window(structs);
-	if (key == UP_ARROW)
+	if (key == MAIN_W)
 		sl_move_up(structs->map_data, structs->link);
-	if (key == DOWN_ARROW)
-		sl_move_up(structs->map_data, structs->link);
-	if (key == RIGHT_ARROW)
-		sl_move_up(structs->map_data, structs->link);
-	if (key == LEFT_ARROW)
-		sl_move_up(structs->map_data, structs->link);
+	if (key == MAIN_S)
+		sl_move_down(structs->map_data, structs->link);
+	if (key == MAIN_D)
+		sl_move_right(structs->map_data, structs->link);
+	if (key == MAIN_A)
+		sl_move_left(structs->map_data, structs->link);
 	return (key);
 }
 

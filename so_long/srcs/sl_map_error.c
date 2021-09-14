@@ -6,31 +6,29 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:49:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 18:13:58 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 12:34:18 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int		sl_map_standards(char **map)
+int		sl_map_standards(char **map, t_main *structs)
 {
 	int	index;
 	int	player;
 	int	exit;
-	int	collect;
 
 	index = 0;
 	player = 0;
 	exit = 0;
-	collect = 0;
 	while (map[index])
 	{
 		player += ft_char_search(map[index], 'P');
 		exit += ft_char_search(map[index], 'E');
-		collect += ft_char_search(map[index], 'C');
+		structs->link->collect_goal += ft_char_search(map[index], 'C');
 		index++;
 	}
-	if (player == 0 || exit == 0 || collect == 0 || player > 1)
+	if (player == 0 || exit == 0 || structs->link->collect_goal == 0 || player > 1)
 		return (-1);
 	else
 		return (1);
@@ -80,11 +78,11 @@ int	sl_map_asset_valid(t_map *map_data)
 	return (0);
 }
 
-void	sl_map_error_main(t_map *map_data)
+void	sl_map_error_main(t_main *structs)
 {
-	sl_valid_map_limit(map_data);
-	if (sl_map_standards(map_data->line) == -1)
-		sl_map_invalid(map_data);
-	if (sl_map_asset_valid(map_data) == -1)
-		sl_map_invalid(map_data);
+	sl_valid_map_limit(structs->map_data);
+	if (sl_map_standards(structs->map_data->line, structs) == -1)
+		sl_map_invalid(structs->map_data);
+	if (sl_map_asset_valid(structs->map_data) == -1)
+		sl_map_invalid(structs->map_data);
 }

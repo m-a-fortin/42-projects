@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:09:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 17:45:30 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:08:05 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,13 @@ int	sl_print_map(t_main *structs)
 		sl_exit(structs);
 	}
 	structs->time40++;
+	structs->time60++;
 	structs->time10++;
 	if (structs->time40 == 41)
 		structs->time40 = 1;
+	if (structs->time60 == 61)
+		structs->time60 = 0;
 	if (structs->time10 == 11)
-		structs->time10 = 1;
+		structs->time10 = 0;
 	return (1);
 }

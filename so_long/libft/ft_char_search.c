@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 19:19:13 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/07 19:20:48 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:45:02 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 int	ft_char_search(char *string, char to_find)
 {
 	int	index;
+	int	ret;
 
 	index = 0;
+	ret = 0;
 	while (string[index])
 	{
 		if (string[index] == to_find)
-			return (1);
-		else
-			index++;
+			ret++;
+		index++;
 	}
-	return (0);
+	return (ret);
 }

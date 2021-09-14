@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 18:57:40 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:12:34 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,17 @@ void	sl_init_struct(t_main *structs)
 	structs->bubble = malloc(sizeof(t_enemy));
 	structs->bubble->state = 1;
 	structs->time40 = 0;
-	structs->time10 = 0;
 	structs->bubble->direction = 'N';
 	structs->bubble->lost = 0;
 	structs->link->lost = 0;
-	structs->link->state[0] = 'N';
-	structs->link->state[1] = '0';
+	structs->link->state[0] = 'D';
+	structs->link->state[1] = '1';
+	structs->link->collect = 0;
+	structs->link->collect_goal = 0;
+	structs->link->win = 0;
+	structs->link->moves = 0;
+	structs->time60 = 0;
+	structs->time10 = 0;
 }
 
 int	main(int argc, char **argv)
@@ -35,13 +40,14 @@ int	main(int argc, char **argv)
 	int	width_win;
 	int	height_win;
 
+	//error de sortie pour le nombre d'arguments. OHOH
 	structs = malloc(sizeof(t_main));
 	sl_init_struct(structs);
-	sl_parse_map_main(structs->map_data, argv, argc);
+	sl_parse_map_main(structs, argv, argc);
 	structs->ptrs->mlx = mlx_init();
 	width_win = (structs->map_data->y + 1) * 75;
 	height_win = (structs->map_data->x + 1) * 75;
-	structs->ptrs->win = mlx_new_window(structs->ptrs->mlx, width_win, height_win, "Link to the so_long");
+	structs->ptrs->win = mlx_new_window(structs->ptrs->mlx, width_win, height_win + 75, "Link to the so_long");
 	sl_put_image_main(structs);
 	sl_event_main(structs);
 	mlx_loop(structs->ptrs->mlx);

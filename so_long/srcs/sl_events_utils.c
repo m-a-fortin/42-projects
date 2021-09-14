@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:40:48 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 19:03:13 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:12:48 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	sl_count_time(t_main *structs)
 {
 	structs->time40++;
+	structs->time60++;
+	structs->time10++;
 	return (0);
 }
 

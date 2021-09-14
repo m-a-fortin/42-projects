@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 12:39:37 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 17:30:41 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 17:03:35 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	sl_pathing_direction1(t_main *structs)
 {
 	if (structs->bubble->direction == 'N')
 	{
+		printf("spin:%d\n", structs->bubble->spin);
 		if (structs->map_data->line[structs->bubble->x + 1][structs->bubble->y] == '0'
 			|| structs->map_data->line[structs->bubble->x + 1][structs->bubble->y] == 'P')
 			return ;
 		else
 		{
-			if (structs->bubble->spin >= 4)
+			if (structs->bubble->spin >= 3)
 			{
 				structs->bubble->direction = 'X';
 				return ;
@@ -42,7 +43,7 @@ void sl_pathing_direction2(t_main *structs)
 			return ;
 		else
 		{
-			if (structs->bubble->spin >= 4)
+			if (structs->bubble->spin >= 3)
 			{
 				structs->bubble->direction = 'X';
 				return ;
@@ -65,7 +66,7 @@ void	sl_pathing_direction3(t_main *structs)
 			return ;
 		else
 		{
-			if (structs->bubble->spin >= 4)
+			if (structs->bubble->spin >= 3)
 			{
 				structs->bubble->direction = 'X';
 				return ;
@@ -75,6 +76,7 @@ void	sl_pathing_direction3(t_main *structs)
 			sl_pathing_direction4(structs);
 		}
 	}
+	sl_pathing_direction4(structs);
 }
 
 void	sl_pathing_direction4(t_main *structs)
@@ -86,7 +88,7 @@ void	sl_pathing_direction4(t_main *structs)
 			return ;
 		else
 		{
-			if (structs->bubble->spin >= 4)
+			if (structs->bubble->spin >= 3)
 			{
 				structs->bubble->direction = 'X';
 				return ;
@@ -96,4 +98,5 @@ void	sl_pathing_direction4(t_main *structs)
 			sl_pathing_direction1(structs);
 		}
 	}
+	sl_pathing_direction1(structs);
 }

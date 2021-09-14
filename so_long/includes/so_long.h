@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 18:56:29 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 16:12:26 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,10 @@ typedef struct s_player
 	int		x;
 	int		y;
 	int		lost;
+	int		collect;
+	int		collect_goal;
+	int		win;
+	int		moves;
 }			t_player;
 
 typedef struct s_enemy
@@ -91,15 +95,16 @@ typedef struct s_main
 	t_player	*link;
 	t_enemy		*bubble;
 	int			time40;
+	int			time60;
 	int			time10;
 }				t_main;
 
 
-void	sl_parse_map_main(t_map *map, char **argv, int argc);
+void	sl_parse_map_main(t_main *structs, char **argv, int argc);
 void	sl_get_map(t_map *map_data, char *file_name, int line_count);
 int		sl_line_count(t_map *map_data);
 void	sl_fd_error(t_map *map_data, char **argv);
-void	sl_map_error_main(t_map *map_data);
+void	sl_map_error_main(t_main *structs);
 void	sl_valid_map_limit(t_map *map_data);
 int		sl_map_asset_valid(t_map *map_data);
 void	sl_map_invalid(t_map *map_data);
@@ -122,5 +127,18 @@ void	sl_pathing_direction3(t_main *structs);
 void	sl_pathing_direction4(t_main *structs);
 void	sl_change_enemy_pos2(t_map *map_data, t_enemy *bubble);
 void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble);
+void	sl_move_up(t_map *map_data, t_player *link);
+void	sl_move_up_linkmap(t_player *link, t_map *map_data);
+void	sl_move_up_state(t_player *link);
+void	sl_print_player_tile(t_main *structs, int x, int y);
+void	sl_move_down(t_map *map_data, t_player *link);
+void	sl_move_down_linkmap(t_player *link, t_map *map_data);
+void	sl_move_down_state(t_player *link);
+void	sl_move_right(t_map *map_data, t_player *link);
+void	sl_move_right_linkmap(t_player *link, t_map *map_data);
+void	sl_move_right_state(t_player *link);
+void	sl_move_left(t_map *map_data, t_player *link);
+void	sl_move_left_linkmap(t_player *link, t_map *map_data);
+void	sl_move_left_state(t_player *link);
 
 #endif

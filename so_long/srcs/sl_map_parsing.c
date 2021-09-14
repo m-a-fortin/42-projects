@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:24:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/10 16:51:11 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 11:59:07 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,21 @@ void	sl_get_map(t_map *map_data, char *file_name, int line_count)
 	close(map_data->fd);
 }
 
-void	sl_parse_map_main(t_map *map_data, char **argv, int argc)
+void	sl_parse_map_main(t_main *structs, char **argv, int argc)
 {
 	int	line_count;
 	
 	line_count = 0;
 	if (argc != 2)
 	{
-		write(1,
-			"Incorrect # of arguments Use: ./so_long \"name of map file\".ber\n",
-			63);
-		free(map_data);
-		exit (0);
+		ft_putstr_fd("Error\nIncorrect # of arguments Use: ./so_long \"name of map file\".ber\n", 1);
+		sl_exit(structs);
 	}
-	map_data->fd = open(argv[1], O_RDONLY);
-	if (map_data->fd == -1)
-		sl_fd_error(map_data, argv);
+	structs->map_data->fd = open(argv[1], O_RDONLY);
+	if (structs->map_data->fd == -1)
+		sl_fd_error(structs->map_data, argv);
 	else
-		line_count = sl_line_count(map_data);
-	sl_get_map(map_data, argv[1], line_count);
-	sl_map_error_main(map_data);
+		line_count = sl_line_count(structs->map_data);
+	sl_get_map(structs->map_data, argv[1], line_count);
+	sl_map_error_main(structs);
 }

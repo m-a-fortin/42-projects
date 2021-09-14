@@ -4,7 +4,8 @@ SRCS_PATH =	srcs
 LIBFT =		libft
 
 SRCS =		so_long.c sl_map_parsing.c sl_error.c sl_print_map.c sl_events.c sl_player.c sl_map_error.c sl_events_utils.c\
-			sl_enemy.c sl_pathing.c
+			sl_enemy.c sl_pathing.c sl_player_movement_up.c sl_player_movement_down.c sl_player_movement_right.c\
+			sl_player_movement_left.c
 
 CC =		gcc
 CFLAGS =	-Wall -Werror -Wextra -c -g

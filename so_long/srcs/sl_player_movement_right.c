@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 13:21:55 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 17:29:20 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 18:11:00 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	sl_move_right(t_map *map_data, t_player *link)
 				link->lost = 1;
 			else if (temp == 'E' && link->collect >= link->collect_goal)
 				link->win = 1;
-			if (temp == '0' || link->win == 1)
+			if (temp == '0' || link->win == 1 || temp == 'X')
 				sl_move_right_linkmap(link, map_data);
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:28:46 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 16:15:05 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:15:27 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	sl_print_player_tile(t_main *structs, int x, int y)
 {
 	x *= 75;
 	y *= 75;
-
 	mlx_put_image_to_window(structs->ptrs->mlx, structs->ptrs->win, "assets/xpm/link_front.xpm", y, x);
 	if (structs->link->state[0] == 'U')
 	{
@@ -69,6 +68,11 @@ void	sl_print_player_tile(t_main *structs, int x, int y)
 		if (structs->link->state[1] == '3')
 			mlx_put_image_to_window(structs->ptrs->mlx, structs->ptrs->win, structs->link->right3, y, x);
 	}
+	sl_print_player_tile2(structs, x, y);
+}
+
+void	sl_print_player_tile2(t_main *structs, int x, int y)
+{
 	if (structs->link->state[0] == 'D')
 	{
 		if (structs->link->state[1] == '1')
@@ -87,7 +91,6 @@ void	sl_print_player_tile(t_main *structs, int x, int y)
 		if (structs->link->state[1] == '3')
 			mlx_put_image_to_window(structs->ptrs->mlx, structs->ptrs->win, structs->link->left3, y, x);
 	}
-
 }
 
 int	sl_print_player(t_main *structs)

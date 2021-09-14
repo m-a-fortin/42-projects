@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 16:12:26 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:15:30 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,17 +97,19 @@ typedef struct s_main
 	int			time40;
 	int			time60;
 	int			time10;
+	id_t		image_done;
 }				t_main;
 
 
 void	sl_parse_map_main(t_main *structs, char **argv, int argc);
-void	sl_get_map(t_map *map_data, char *file_name, int line_count);
-int		sl_line_count(t_map *map_data);
+void	sl_get_map(t_map *map_data, char *file_name, int line_count, t_main *structs);
+int		sl_line_count(t_map *map_data, t_main *structs);
 void	sl_fd_error(t_map *map_data, char **argv);
 void	sl_map_error_main(t_main *structs);
-void	sl_valid_map_limit(t_map *map_data);
+void	sl_valid_map_limit(t_map *map_data, t_main *structs);
 int		sl_map_asset_valid(t_map *map_data);
-void	sl_map_invalid(t_map *map_data);
+void	sl_args_error(t_main *structs);
+void	sl_map_invalid(t_main *structs);
 void	sl_argc_error(t_map *map_data);
 void	sl_exit(t_main *structs);
 int		sl_put_image_main(t_main *structs);
@@ -140,5 +142,7 @@ void	sl_move_right_state(t_player *link);
 void	sl_move_left(t_map *map_data, t_player *link);
 void	sl_move_left_linkmap(t_player *link, t_map *map_data);
 void	sl_move_left_state(t_player *link);
+void	sl_manage_time(t_main *structs);
+void	sl_print_player_tile2(t_main *structs, int x, int y);
 
 #endif

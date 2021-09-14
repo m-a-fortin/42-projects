@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:49:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 12:34:18 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:09:49 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		sl_map_standards(char **map, t_main *structs)
 		return (1);
 }
 
-void	sl_valid_map_limit(t_map *map_data)
+void	sl_valid_map_limit(t_map *map_data, t_main *structs)
 {
 	int	x;
 	int	y;
@@ -44,13 +44,13 @@ void	sl_valid_map_limit(t_map *map_data)
 	while (map_data->line[0][y])
 	{
 		if (map_data->line[0][y] != '1' || map_data->line[map_data->x][y] != '1')
-			sl_map_invalid(map_data);
+			sl_map_invalid(structs);
 		y++;
 	}
 	while (map_data->line[x])
 	{
 		if (map_data->line[x][0] != '1' || map_data->line[x][map_data->y] != '1')
-				sl_map_invalid(map_data);
+				sl_map_invalid(structs);
 		x++;
 	}
 }
@@ -80,9 +80,9 @@ int	sl_map_asset_valid(t_map *map_data)
 
 void	sl_map_error_main(t_main *structs)
 {
-	sl_valid_map_limit(structs->map_data);
+	sl_valid_map_limit(structs->map_data, structs);
 	if (sl_map_standards(structs->map_data->line, structs) == -1)
-		sl_map_invalid(structs->map_data);
+		sl_map_invalid(structs);
 	if (sl_map_asset_valid(structs->map_data) == -1)
-		sl_map_invalid(structs->map_data);
+		sl_map_invalid(structs);
 }

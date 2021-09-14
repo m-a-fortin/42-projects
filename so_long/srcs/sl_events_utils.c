@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:40:48 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 16:12:48 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:12:53 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,19 @@ void	sl_time_enemy_40(t_main *structs, t_enemy *bubble)
 		mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/enemy_one.xpm", &width, &height);
 		mlx_put_image_to_window(structs->ptrs->mlx, structs->ptrs->win, bubble->frame1, bubble->x, bubble->y);
 	}
+}
+
+void	sl_manage_time(t_main *structs)
+{
+	structs->time40++;
+	structs->time60++;
+	structs->time10++;
+	if (structs->time40 == 41)
+		structs->time40 = 1;
+	if (structs->time60 == 61)
+		structs->time60 = 0;
+	if (structs->time10 == 11)
+		structs->time10 = 0;
 }
 
 void	sl_time_event_40(t_main *structs)

@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:09:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 17:08:05 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:13:27 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	sl_put_image_main(t_main *structs)
 	structs->tiles->key = mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/key.xpm", &width, &height);
 	sl_player_image(structs->link, structs->ptrs);
 	sl_enemy_image(structs->bubble, structs->ptrs);
+	structs->image_done = 1;
 	return (1);
 }
 
@@ -98,21 +99,12 @@ int	sl_print_map(t_main *structs)
 	sl_print_loop(structs, x , y);
 	sl_print_player(structs);
 	sl_print_enemy(structs);
-	//a arranger pour etre capable de print les 2!
-	if (structs->bubble->lost == 1)
+	if (structs->bubble->lost == 1 || structs->link->lost == 1 || structs->link->win == 1)
 	{
 		sl_print_player(structs);
 		sl_print_enemy(structs);
 		sl_exit(structs);
 	}
-	structs->time40++;
-	structs->time60++;
-	structs->time10++;
-	if (structs->time40 == 41)
-		structs->time40 = 1;
-	if (structs->time60 == 61)
-		structs->time60 = 0;
-	if (structs->time10 == 11)
-		structs->time10 = 0;
+	sl_manage_time(structs);
 	return (1);
 }

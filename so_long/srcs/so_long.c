@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 16:12:34 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:29:44 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	sl_init_struct(t_main *structs)
 	structs->link->moves = 0;
 	structs->time60 = 0;
 	structs->time10 = 0;
+	structs->image_done = 0;
 }
 
 int	main(int argc, char **argv)
@@ -39,8 +40,7 @@ int	main(int argc, char **argv)
 	t_main	*structs;
 	int	width_win;
 	int	height_win;
-
-	//error de sortie pour le nombre d'arguments. OHOH
+	
 	structs = malloc(sizeof(t_main));
 	sl_init_struct(structs);
 	sl_parse_map_main(structs, argv, argc);

@@ -6,13 +6,13 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:24:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 11:59:07 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 19:06:55 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	sl_line_count(t_map *map_data)
+int	sl_line_count(t_map *map_data, t_main *structs)
 {
 	int		count;
 	int		ret;
@@ -34,11 +34,11 @@ int	sl_line_count(t_map *map_data)
 	}
 	close(map_data->fd);
 	if (count == 1)
-		sl_map_invalid(map_data);
+		sl_map_invalid(structs);
 	return (count + 1);
 }
 
-void	sl_get_map(t_map *map_data, char *file_name, int line_count)
+void	sl_get_map(t_map *map_data, char *file_name, int line_count, t_main *structs)
 {
 	int	ret;
 	int	index;
@@ -57,7 +57,7 @@ void	sl_get_map(t_map *map_data, char *file_name, int line_count)
 		ret = get_next_line(map_data->fd, &map_data->line[index]);
 		len = ft_strlen(map_data->line[index]);
 		if (len != map_data->y)
-			sl_map_invalid(map_data);
+			sl_map_invalid(structs);
 		index++;
 	}
 	map_data->x = line_count - 1;
@@ -72,15 +72,12 @@ void	sl_parse_map_main(t_main *structs, char **argv, int argc)
 	
 	line_count = 0;
 	if (argc != 2)
-	{
-		ft_putstr_fd("Error\nIncorrect # of arguments Use: ./so_long \"name of map file\".ber\n", 1);
-		sl_exit(structs);
-	}
+		sl_args_error(structs);
 	structs->map_data->fd = open(argv[1], O_RDONLY);
 	if (structs->map_data->fd == -1)
 		sl_fd_error(structs->map_data, argv);
 	else
-		line_count = sl_line_count(structs->map_data);
-	sl_get_map(structs->map_data, argv[1], line_count);
+		line_count = sl_line_count(structs->map_data, structs);
+	sl_get_map(structs->map_data, argv[1], line_count, structs);
 	sl_map_error_main(structs);
 }

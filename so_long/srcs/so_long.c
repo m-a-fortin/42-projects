@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 19:29:44 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:22:18 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	sl_init_struct(t_main *structs)
 	structs->tiles = malloc(sizeof(t_images));
 	structs->link = malloc(sizeof(t_player));
 	structs->bubble = malloc(sizeof(t_enemy));
+	structs->number_data = malloc(sizeof(t_number));
 	structs->bubble->state = 1;
 	structs->time40 = 0;
 	structs->bubble->direction = 'N';
@@ -33,6 +34,7 @@ void	sl_init_struct(t_main *structs)
 	structs->time60 = 0;
 	structs->time10 = 0;
 	structs->image_done = 0;
+	structs->number_data->y = 4;
 }
 
 int	main(int argc, char **argv)

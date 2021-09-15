@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/08 13:09:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 19:13:27 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:16:31 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ int	sl_put_image_main(t_main *structs)
 	structs->tiles->key = mlx_xpm_file_to_image(structs->ptrs->mlx, "assets/xpm/key.xpm", &width, &height);
 	sl_player_image(structs->link, structs->ptrs);
 	sl_enemy_image(structs->bubble, structs->ptrs);
+	sl_number_images(structs->number_data, structs->ptrs);
 	structs->image_done = 1;
 	return (1);
 }
@@ -96,6 +97,7 @@ int	sl_print_map(t_main *structs)
 	x = 0;
 	y = 0;
 	structs->ptrs->img_index = 0;
+	sl_print_moves(structs);
 	sl_print_loop(structs, x , y);
 	sl_print_player(structs);
 	sl_print_enemy(structs);

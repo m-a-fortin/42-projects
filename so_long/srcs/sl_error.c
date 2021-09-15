@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:49:10 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 19:06:39 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:01:25 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	sl_args_error(t_main *structs)
 	free(structs->tiles);
 	free(structs->link);
 	free(structs->bubble);
+	free(structs->number_data);
 	free(structs);
 	exit (0);
 }
@@ -55,17 +56,13 @@ void	sl_exit(t_main *structs)
 		sl_destroy(structs->ptrs, structs->tiles);
 	if (structs->map_data->line)
 		ft_free_tab(structs->map_data->line);
-	if (structs->link)
-		free(structs->link);
-	if (structs->bubble)
-		free(structs->bubble);
-	if (structs->map_data)
-		free(structs->map_data);
-	if (structs->ptrs)
-		free(structs->ptrs);
+	free(structs->link);
+	free(structs->bubble);
+	free(structs->map_data);
+	free(structs->ptrs);
+	free(structs->number_data);
 	if (structs->tiles)
 		free(structs->tiles);
-	if (structs)
-		free(structs);
+	free(structs);
 	exit (0);
 }

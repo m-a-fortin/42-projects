@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 19:15:30 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:35:31 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,23 @@ typedef struct s_enemy
 	int		lost;
 }				t_enemy;
 
+typedef struct s_number
+{
+	void	*zero;
+	void	*one;
+	void	*two;
+	void	*three;
+	void	*four;
+	void	*five;
+	void	*six;
+	void	*seven;
+	void	*eight;
+	void	*nine;
+	void	*numbers;
+	int		x;
+	int		y;
+}				t_number;
+
 typedef struct s_main
 {
 	t_map		*map_data;
@@ -94,12 +111,12 @@ typedef struct s_main
 	t_images	*tiles;
 	t_player	*link;
 	t_enemy		*bubble;
+	t_number	*number_data;
 	int			time40;
 	int			time60;
 	int			time10;
-	id_t		image_done;
+	int			image_done;
 }				t_main;
-
 
 void	sl_parse_map_main(t_main *structs, char **argv, int argc);
 void	sl_get_map(t_map *map_data, char *file_name, int line_count, t_main *structs);
@@ -144,5 +161,9 @@ void	sl_move_left_linkmap(t_player *link, t_map *map_data);
 void	sl_move_left_state(t_player *link);
 void	sl_manage_time(t_main *structs);
 void	sl_print_player_tile2(t_main *structs, int x, int y);
+void	sl_number_images(t_number *number_data, t_mlx *ptrs);
+void	sl_print_moves(t_main *structs);
+void	sl_print_moves_nb(t_main *structs, t_number *number_data, int moves);
+void	sl_print_tile_moves(t_main *structs, int x, int y, int nb);
 
 #endif

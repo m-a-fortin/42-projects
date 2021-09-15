@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:24:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 19:06:55 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/14 20:19:42 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	sl_line_count(t_map *map_data, t_main *structs)
 	close(map_data->fd);
 	if (count == 1)
 		sl_map_invalid(structs);
+	structs->number_data->x = count + 1;
 	return (count + 1);
 }
 

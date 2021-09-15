@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sl_map_error.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 16:49:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 19:09:49 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:36:04 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int		sl_map_standards(char **map, t_main *structs)
+int	sl_map_standards(char **map, t_main *structs)
 {
 	int	index;
 	int	player;

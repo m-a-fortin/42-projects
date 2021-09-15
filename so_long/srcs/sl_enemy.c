@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_enemy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:05:48 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 17:37:40 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:36:16 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	*ft_check_enemy_state(t_main *structs)
 
 void	sl_print_enemy_loop(t_main *structs, void *to_print)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (structs->map_data->line[x])
@@ -58,7 +58,7 @@ void	sl_print_enemy_loop(t_main *structs, void *to_print)
 
 void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble)
 {
-	char temp;
+	char	temp;
 
 	if (bubble->direction == 'N')
 	{
@@ -81,7 +81,7 @@ void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble)
 
 void	sl_change_enemy_pos2(t_map *map_data, t_enemy *bubble)
 {
-	char temp;
+	char	temp;
 
 	if (bubble->direction == 'S')
 	{

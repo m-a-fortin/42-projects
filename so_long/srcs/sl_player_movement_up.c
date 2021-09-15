@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_player_movement_up.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 17:46:43 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 18:11:06 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:38:08 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sl_move_up_linkmap(t_player *link, t_map *map_data)
 
 void	sl_move_up(t_map *map_data, t_player *link)
 {
-	char temp;
+	char	temp;
 
 	if (map_data->line[link->x - 1][link->y] != '1')
 	{

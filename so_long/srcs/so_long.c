@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 20:22:18 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:40:17 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	sl_init_struct(t_main *structs)
 int	main(int argc, char **argv)
 {
 	t_main	*structs;
-	int	width_win;
-	int	height_win;
+	int		width_win;
+	int		height_win;
 	
 	structs = malloc(sizeof(t_main));
 	sl_init_struct(structs);

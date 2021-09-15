@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_print_nb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 19:30:07 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 20:35:27 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:39:49 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,6 @@ void	sl_print_moves_nb(t_main *structs, t_number *number_data, int moves)
 	int	nb;
 
 	nb = moves;
-	//if (nb == 0)
-	//{
-	//	sl_print_tile(structs, number_data->zero, number_data->x, number_data->y);
-	//}
 	if (nb > 9)
 	{
 		sl_print_moves_nb(structs, number_data, nb / 10);

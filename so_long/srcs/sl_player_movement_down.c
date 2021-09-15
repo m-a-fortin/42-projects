@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_player_movement_down.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 13:19:59 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 18:10:51 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:37:21 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sl_move_down_linkmap(t_player *link, t_map *map_data)
 
 void	sl_move_down(t_map *map_data, t_player *link)
 {
-	char temp;
+	char	temp;
 
 	if (map_data->line[link->x + 1][link->y] != '1')
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sl_player_movement_right.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hpst <hpst@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 13:21:55 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 18:11:00 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/15 19:37:40 by hpst             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sl_move_right_linkmap(t_player *link, t_map *map_data)
 
 void	sl_move_right(t_map *map_data, t_player *link)
 {
-	char temp;
+	char	temp;
 
 	if (map_data->line[link->x][link->y + 1] != '1')
 	{

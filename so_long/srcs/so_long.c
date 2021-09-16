@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:17:54 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 20:22:18 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:41:49 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,23 @@ void	sl_init_struct(t_main *structs)
 	structs->time10 = 0;
 	structs->image_done = 0;
 	structs->number_data->y = 4;
+	structs->enm = 0;
 }
 
 int	main(int argc, char **argv)
 {
 	t_main	*structs;
-	int	width_win;
-	int	height_win;
-	
+	int		width_win;
+	int		height_win;
+
 	structs = malloc(sizeof(t_main));
 	sl_init_struct(structs);
 	sl_parse_map_main(structs, argv, argc);
 	structs->ptrs->mlx = mlx_init();
 	width_win = (structs->map_data->y + 1) * 75;
 	height_win = (structs->map_data->x + 1) * 75;
-	structs->ptrs->win = mlx_new_window(structs->ptrs->mlx, width_win, height_win + 75, "Link to the so_long");
+	structs->ptrs->win = mlx_new_window(structs->ptrs->mlx,
+			width_win, height_win + 75, "Link to the so_long");
 	sl_put_image_main(structs);
 	sl_event_main(structs);
 	mlx_loop(structs->ptrs->mlx);

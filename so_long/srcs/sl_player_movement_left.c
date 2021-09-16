@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 15:56:37 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 18:10:56 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:41:21 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sl_move_left_linkmap(t_player *link, t_map *map_data)
 
 void	sl_move_left(t_map *map_data, t_player *link)
 {
-	char temp;
+	char	temp;
 
 	if (map_data->line[link->x][link->y - 1] != '1')
 	{

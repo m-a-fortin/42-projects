@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/10 17:05:48 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/13 17:37:40 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:40:51 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	*ft_check_enemy_state(t_main *structs)
 
 void	sl_print_enemy_loop(t_main *structs, void *to_print)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (structs->map_data->line[x])
@@ -58,14 +58,15 @@ void	sl_print_enemy_loop(t_main *structs, void *to_print)
 
 void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble)
 {
-	char temp;
+	char	temp;
 
 	if (bubble->direction == 'N')
 	{
 		temp = map_data->line[bubble->x + 1][bubble->y];
 		if (temp == 'P')
 			bubble->lost = 1;
-		map_data->line[bubble->x + 1][bubble->y] = map_data->line[bubble->x][bubble->y];
+		map_data->line[bubble->x + 1][bubble->y]
+			= map_data->line[bubble->x][bubble->y];
 		map_data->line[bubble->x][bubble->y] = temp;
 	}
 	if (bubble->direction == 'E')
@@ -73,7 +74,8 @@ void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble)
 		temp = map_data->line[bubble->x][bubble->y + 1];
 		if (temp == 'P')
 			bubble->lost = 1;
-		map_data->line[bubble->x][bubble->y + 1] = map_data->line[bubble->x][bubble->y];
+		map_data->line[bubble->x][bubble->y + 1]
+			= map_data->line[bubble->x][bubble->y];
 		map_data->line[bubble->x][bubble->y] = temp;
 	}
 	sl_change_enemy_pos2(map_data, bubble);
@@ -81,14 +83,15 @@ void	sl_change_enemy_pos(t_map *map_data, t_enemy *bubble)
 
 void	sl_change_enemy_pos2(t_map *map_data, t_enemy *bubble)
 {
-	char temp;
+	char	temp;
 
 	if (bubble->direction == 'S')
 	{
 		temp = map_data->line[bubble->x - 1][bubble->y];
 		if (temp == 'P')
 			bubble->lost = 1;
-		map_data->line[bubble->x - 1][bubble->y] = map_data->line[bubble->x][bubble->y];
+		map_data->line[bubble->x - 1][bubble->y]
+			= map_data->line[bubble->x][bubble->y];
 		map_data->line[bubble->x][bubble->y] = temp;
 	}
 	if (bubble->direction == 'W')
@@ -96,7 +99,8 @@ void	sl_change_enemy_pos2(t_map *map_data, t_enemy *bubble)
 		temp = map_data->line[bubble->x][bubble->y - 1];
 		if (temp == 'P')
 			bubble->lost = 1;
-		map_data->line[bubble->x][bubble->y - 1] = map_data->line[bubble->x][bubble->y];
+		map_data->line[bubble->x][bubble->y - 1]
+			= map_data->line[bubble->x][bubble->y];
 		map_data->line[bubble->x][bubble->y] = temp;
 	}
 }

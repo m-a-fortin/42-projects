@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:24:06 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 20:19:42 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:41:06 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	sl_line_count(t_map *map_data, t_main *structs)
 		}
 		buf[1] = '\0';
 		if (buf[0] == '\n')
-		count++;
+			count++;
 	}
 	close(map_data->fd);
 	if (count == 1)
@@ -39,7 +39,8 @@ int	sl_line_count(t_map *map_data, t_main *structs)
 	return (count + 1);
 }
 
-void	sl_get_map(t_map *map_data, char *file_name, int line_count, t_main *structs)
+void	sl_get_map(t_map *map_data, char *file_name, int line_count,
+	t_main *structs)
 {
 	int	ret;
 	int	index;
@@ -70,7 +71,7 @@ void	sl_get_map(t_map *map_data, char *file_name, int line_count, t_main *struct
 void	sl_parse_map_main(t_main *structs, char **argv, int argc)
 {
 	int	line_count;
-	
+
 	line_count = 0;
 	if (argc != 2)
 		sl_args_error(structs);

@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/07 16:14:31 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 20:35:31 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:27:26 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-typedef struct	s_map
+typedef struct s_map
 {
 	char	**line;
 	int		fd;
@@ -31,7 +31,7 @@ typedef struct	s_map
 	int		nb_tiles;
 }				t_map;
 
-typedef struct	s_mlx
+typedef struct s_mlx
 {
 	void	*mlx;
 	void	*win;
@@ -116,10 +116,12 @@ typedef struct s_main
 	int			time60;
 	int			time10;
 	int			image_done;
+	int			enm;
 }				t_main;
 
 void	sl_parse_map_main(t_main *structs, char **argv, int argc);
-void	sl_get_map(t_map *map_data, char *file_name, int line_count, t_main *structs);
+void	sl_get_map(t_map *map_data, char
+			*file_name, int line_count, t_main *structs);
 int		sl_line_count(t_map *map_data, t_main *structs);
 void	sl_fd_error(t_map *map_data, char **argv);
 void	sl_map_error_main(t_main *structs);
@@ -165,5 +167,7 @@ void	sl_number_images(t_number *number_data, t_mlx *ptrs);
 void	sl_print_moves(t_main *structs);
 void	sl_print_moves_nb(t_main *structs, t_number *number_data, int moves);
 void	sl_print_tile_moves(t_main *structs, int x, int y, int nb);
+void	sl_player_image2(t_player *link, t_mlx *ptrs);
+void	sl_print_player_tile3(t_main *structs, int x, int y);
 
 #endif

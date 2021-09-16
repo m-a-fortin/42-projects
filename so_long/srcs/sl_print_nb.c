@@ -6,7 +6,7 @@
 /*   By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/14 19:30:07 by mafortin          #+#    #+#             */
-/*   Updated: 2021/09/14 20:38:00 by mafortin         ###   ########.fr       */
+/*   Updated: 2021/09/16 13:41:37 by mafortin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,32 @@ void	sl_number_images(t_number *number_data, t_mlx *ptrs)
 	int	width;
 	int	height;
 
-	number_data->zero = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/0.xpm", &width, &height);
-	number_data->one = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/1.xpm", &width, &height);
-	number_data->two = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/2.xpm", &width, &height);
-	number_data->three = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/3.xpm", &width, &height);
-	number_data->four = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/4.xpm", &width, &height);
-	number_data->five = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/5.xpm", &width, &height);
-	number_data->six = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/6.xpm", &width, &height);
-	number_data->seven = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/7.xpm", &width, &height);
-	number_data->eight = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/8.xpm", &width, &height);
-	number_data->nine = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/9.xpm", &width, &height);
-	number_data->numbers = mlx_xpm_file_to_image(ptrs->mlx, "assets/xpm/moves.xpm", &width, &height);
+	number_data->zero = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/0.xpm", &width, &height);
+	number_data->one = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/1.xpm", &width, &height);
+	number_data->two = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/2.xpm", &width, &height);
+	number_data->three = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/3.xpm", &width, &height);
+	number_data->four = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/4.xpm", &width, &height);
+	number_data->five = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/5.xpm", &width, &height);
+	number_data->six = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/6.xpm", &width, &height);
+	number_data->seven = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/7.xpm", &width, &height);
+	number_data->eight = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/8.xpm", &width, &height);
+	number_data->nine = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/9.xpm", &width, &height);
+	number_data->numbers = mlx_xpm_file_to_image(ptrs->mlx,
+			"assets/xpm/moves.xpm", &width, &height);
 }
 
 void	sl_print_moves_nb(t_main *structs, t_number *number_data, int moves)
 {
-
 	int	nb;
 
 	nb = moves;

@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mafortin <mafortin@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/09/16 13:28:00 by mafortin          #+#    #+#              #
+#    Updated: 2021/09/16 13:40:47 by mafortin         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME =		so_long
 OBJS_PATH =	objs
 SRCS_PATH =	srcs
@@ -5,7 +17,7 @@ LIBFT =		libft
 
 SRCS =		so_long.c sl_map_parsing.c sl_error.c sl_print_map.c sl_events.c sl_player.c sl_map_error.c sl_events_utils.c\
 			sl_enemy.c sl_pathing.c sl_player_movement_up.c sl_player_movement_down.c sl_player_movement_right.c\
-			sl_player_movement_left.c sl_print_nb.c
+			sl_player_movement_left.c sl_print_nb.c sl_player_image.c
 
 CC =		gcc
 CFLAGS =	-Wall -Werror -Wextra -c -g
@@ -44,19 +56,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-
-#linux: 
-#	make re -C ./libft
-#	gcc -Wall -Wextra -Werror -g srcs/*.c -Imlx_linux -Lmlx_linux -Llibft -lft -lmlx -lX11 -lm -lz -lXext
-#
-#test-linux:
-#	make re -C ./libft
-#	gcc -Wall -Wextra -Werror -g mlx_tests/*.c -Imlx_linux -Lmlx_linux -Llibft -lft -lmlx -lX11 -lm -lz -lXext
-#
-#test-mac:
-#	make re -C ./libft
-#	gcc -Wall -Wextra -Werror -g mlx_tests/*.c -Imlx_mac -Lmlx_mac -lmlx -Llibft -lft -framework OpenGL -framework AppKit
-#
-#mac:
-#	make re -C ./libft
-#	gcc -Wall -Wextra -Werror -g srcs/*.c libft/*.c -Imlx_mac -Lmlx_mac -lmlx -Ilibft -framework OpenGL -framework AppKit
